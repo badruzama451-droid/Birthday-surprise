@@ -8,6 +8,45 @@
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
+  .heart{
+position:fixed;
+font-size:30px;
+opacity:.25;
+pointer-events:none;
+animation:floatHeart 8s linear infinite;
+}
+
+.heart1{
+left:10%;
+}
+
+.heart2{
+left:35%;
+animation-delay:2s;
+}
+
+.heart3{
+left:65%;
+animation-delay:4s;
+}
+
+.heart4{
+left:85%;
+animation-delay:6s;
+}
+
+@keyframes floatHeart{
+
+from{
+transform:translateY(100vh);
+}
+
+to{
+transform:translateY(-120px);
+}
+
+}
+
 <style>
 
 *{
@@ -18,7 +57,12 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#000,#250028);
+background:linear-gradient(
+135deg,
+#090011,
+#1b002d,
+#330033
+);
 color:white;
 display:flex;
 justify-content:center;
@@ -27,6 +71,34 @@ min-height:100vh;
 text-align:center;
 padding:20px;
 overflow-x:hidden;
+}
+
+  body::before{
+content:"";
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(circle at 20% 20%, #ff0080 0%, transparent 30%),
+radial-gradient(circle at 80% 70%, #8a2be2 0%, transparent 30%);
+
+opacity:.25;
+
+animation:bgmove 10s infinite alternate;
+
+pointer-events:none;
+}
+
+@keyframes bgmove{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.15);
+}
+
 }
 
 .hidden{
@@ -46,18 +118,41 @@ cursor:pointer;
 }
 
 #typed{
-font-size:34px;
-color:#ff7ac8;
+font-size:42px;
+font-weight:bold;
+color:#ff85c1;
+text-shadow:0 0 20px #ff4da6;
 margin:20px 0;
 }
 
 #slide{
-width:270px;
-height:480px;
+width:300px;
+height:520px;
 object-fit:cover;
-border-radius:20px;
-box-shadow:0 0 25px rgba(255,255,255,.4);
-margin-top:20px;
+border-radius:30px;
+border:2px solid rgba(255,255,255,.2);
+
+box-shadow:
+0 0 20px #ff4da6,
+0 0 50px rgba(255,77,166,.6);
+
+animation:photoFloat 4s ease-in-out infinite;
+
+transition:.5s;
+}
+
+#slide:hover{
+transform:scale(1.05);
+}
+
+@keyframes photoFloat{
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
 }
 
 #letter{
@@ -194,6 +289,11 @@ requestAnimationFrame(frame);
 }
 
 </script>
+
+  <div class="heart heart1">❤️</div>
+<div class="heart heart2">❤️</div>
+<div class="heart heart3">❤️</div>
+<div class="heart heart4">❤️</div>
 
 </body>
 </html>
