@@ -204,10 +204,30 @@ font-size:55px;
 body{
 font-family:'Poppins',sans-serif;
 }
+  #birthday{
+animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
 </style>
 </head>
 
 <body>
+  <audio id="song" autoplay loop>
+<source src="birthday.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
 
@@ -215,7 +235,7 @@ font-family:'Poppins',sans-serif;
 <h1 style="font-size:100px;">🎁</h1>
 <h2>A Special Gift For You</h2>
 <br>
-<button onclick="openGift()">Open Gift ❤️</button>
+<button onclick="openGift(document.getElementById("song").play();)">Open Gift ❤️</button>
 </div>
 
 <div id="birthday" class="hidden">
