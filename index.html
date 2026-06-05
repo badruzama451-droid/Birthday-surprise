@@ -235,7 +235,7 @@ transform:translateY(0);
 <h1 style="font-size:100px;">🎁</h1>
 <h2>A Special Gift For You</h2>
 <br>
-<button onclick="openGift(document.getElementById("song").play();)">Open Gift ❤️</button>
+<button onclick="openGift()">Open Gift ❤️</button>
 </div>
 
 <div id="birthday" class="hidden">
@@ -285,6 +285,8 @@ const photos=[
 let current=0;
 
 function openGift(){
+
+document.getElementById("song").play();
 
 document.getElementById("gift").classList.add("hidden");
 document.getElementById("birthday").classList.remove("hidden");
