@@ -8,45 +8,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
-  .heart{
-position:fixed;
-font-size:30px;
-opacity:.25;
-pointer-events:none;
-animation:floatHeart 8s linear infinite;
-}
-
-.heart1{
-left:10%;
-}
-
-.heart2{
-left:35%;
-animation-delay:2s;
-}
-
-.heart3{
-left:65%;
-animation-delay:4s;
-}
-
-.heart4{
-left:85%;
-animation-delay:6s;
-}
-
-@keyframes floatHeart{
-
-from{
-transform:translateY(100vh);
-}
-
-to{
-transform:translateY(-120px);
-}
-
-}
-
 <style>
 
 *{
@@ -160,7 +121,23 @@ margin-top:25px;
 line-height:1.8;
 font-size:18px;
 }
+.heart{
+position:fixed;
+font-size:30px;
+opacity:.25;
+pointer-events:none;
+animation:floatHeart 8s linear infinite;
+}
 
+.heart1{left:10%;}
+.heart2{left:35%;animation-delay:2s;}
+.heart3{left:65%;animation-delay:4s;}
+.heart4{left:85%;animation-delay:6s;}
+
+@keyframes floatHeart{
+from{transform:translateY(100vh);}
+to{transform:translateY(-120px);}
+}
 </style>
 </head>
 
