@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise ❤️</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#000,#250028);
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+text-align:center;
+padding:20px;
+overflow-x:hidden;
+}
+
+.hidden{
+display:none;
+}
+
+.container{
+max-width:800px;
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+}
+
+#typed{
+font-size:34px;
+color:#ff7ac8;
+margin:20px 0;
+}
+
+#slide{
+width:270px;
+height:480px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.4);
+margin-top:20px;
+}
+
+#letter{
+margin-top:25px;
+line-height:1.8;
+font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="gift">
+<h1 style="font-size:100px;">🎁</h1>
+<h2>A Special Gift For You</h2>
+<br>
+<button onclick="openGift()">Open Gift ❤️</button>
+</div>
+
+<div id="birthday" class="hidden">
+
+<h1>🎂 Happy Birthday My Love Faiza ji 🎂</h1>
+
+<div id="typed"></div>
+
+<img id="slide" src="photo1.jpg">
+
+<div id="letter">
+
+You are one of the most special people in my Sweetheart baby ❤️
+
+Thank you for every smile,
+every memory and every beautiful moment.
+
+faiza ji bass yun hi zindagi bhar mast mast
+  raho aap aur khush raho, aur aage v allah apko
+  aur bhi bhot bhot saaari khushiyan de.
+
+Happy Birthday shona ❤️
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const photos=[
+"photo1.jpg",
+"photo2.jpg",
+"photo3.jpg",
+"photo4.jpg",
+"photo5.jpg"
+];
+
+let current=0;
+
+function openGift(){
+
+document.getElementById("gift").classList.add("hidden");
+document.getElementById("birthday").classList.remove("hidden");
+
+startTyping();
+startConfetti();
+startSlideshow();
+
+}
+
+function startTyping(){
+
+let text="✨ FAIZA JI ✨";
+
+let i=0;
+
+let typing=setInterval(()=>{
+
+document.getElementById("typed").innerHTML+=text.charAt(i);
+
+i++;
+
+if(i>=text.length){
+clearInterval(typing);
+}
+
+},100);
+
+}
+
+function startSlideshow(){
+
+setInterval(()=>{
+
+current++;
+
+if(current>=photos.length){
+current=0;
+}
+
+document.getElementById("slide").src=photos[current];
+
+},2500);
+
+}
+
+function startConfetti(){
+
+let duration=12000;
+let end=Date.now()+duration;
+
+(function frame(){
+
+confetti({
+particleCount:10,
+spread:120,
+origin:{x:0}
+});
+
+confetti({
+particleCount:10,
+spread:120,
+origin:{x:1}
+});
+
+if(Date.now()<end){
+requestAnimationFrame(frame);
+}
+
+})();
+
+}
+
+</script>
+
+</body>
+</html>
